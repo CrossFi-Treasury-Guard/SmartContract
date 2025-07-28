@@ -1,0 +1,1031 @@
+{
+	"id": "37fcb4f074acb00fa1168dd9663fafa5",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.26",
+	"solcLongVersion": "0.8.26+commit.8a97fa7a",
+	"input": {
+		"language": "Solidity",
+		"settings": {
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"viaIR": true,
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		},
+		"sources": {
+			"CrossFi-Treasury-Guard/contracts/interfaces/IAIScoreRegistry.sol": {
+				"content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\n/**\n * @title IAIScoreRegistry\n * @dev Interface for AIScoreRegistry contract\n */\ninterface IAIScoreRegistry {\n    \n    struct ScoringBreakdown {\n        uint8 ecosystemScore;\n        uint8 feasibilityScore;\n        uint8 riskScore;\n        uint8 teamScore;\n        uint8 innovationScore;\n    }\n    \n    // Events\n    event AIScoreSubmitted(\n        uint256 indexed proposalId,\n        uint256 overallScore,\n        string justificationIPFS,\n        string modelVersion,\n        address indexed oracle,\n        uint256 timestamp\n    );\n    \n    // Functions\n    function submitAIScore(\n        uint256 proposalId,\n        uint256 overallScore,\n        string memory justificationIPFS,\n        string memory modelVersion,\n        ScoringBreakdown memory breakdown\n    ) external;\n    \n    function getAIScore(uint256 proposalId) external view returns (\n        uint256 score,\n        string memory justification,\n        bool exists\n    );\n    \n    function hasAIScore(uint256 proposalId) external view returns (bool exists);\n}\n"
+			}
+		}
+	},
+	"output": {
+		"contracts": {
+			"CrossFi-Treasury-Guard/contracts/interfaces/IAIScoreRegistry.sol": {
+				"IAIScoreRegistry": {
+					"abi": [
+						{
+							"anonymous": false,
+							"inputs": [
+								{
+									"indexed": true,
+									"internalType": "uint256",
+									"name": "proposalId",
+									"type": "uint256"
+								},
+								{
+									"indexed": false,
+									"internalType": "uint256",
+									"name": "overallScore",
+									"type": "uint256"
+								},
+								{
+									"indexed": false,
+									"internalType": "string",
+									"name": "justificationIPFS",
+									"type": "string"
+								},
+								{
+									"indexed": false,
+									"internalType": "string",
+									"name": "modelVersion",
+									"type": "string"
+								},
+								{
+									"indexed": true,
+									"internalType": "address",
+									"name": "oracle",
+									"type": "address"
+								},
+								{
+									"indexed": false,
+									"internalType": "uint256",
+									"name": "timestamp",
+									"type": "uint256"
+								}
+							],
+							"name": "AIScoreSubmitted",
+							"type": "event"
+						},
+						{
+							"inputs": [
+								{
+									"internalType": "uint256",
+									"name": "proposalId",
+									"type": "uint256"
+								}
+							],
+							"name": "getAIScore",
+							"outputs": [
+								{
+									"internalType": "uint256",
+									"name": "score",
+									"type": "uint256"
+								},
+								{
+									"internalType": "string",
+									"name": "justification",
+									"type": "string"
+								},
+								{
+									"internalType": "bool",
+									"name": "exists",
+									"type": "bool"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"inputs": [
+								{
+									"internalType": "uint256",
+									"name": "proposalId",
+									"type": "uint256"
+								}
+							],
+							"name": "hasAIScore",
+							"outputs": [
+								{
+									"internalType": "bool",
+									"name": "exists",
+									"type": "bool"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"inputs": [
+								{
+									"internalType": "uint256",
+									"name": "proposalId",
+									"type": "uint256"
+								},
+								{
+									"internalType": "uint256",
+									"name": "overallScore",
+									"type": "uint256"
+								},
+								{
+									"internalType": "string",
+									"name": "justificationIPFS",
+									"type": "string"
+								},
+								{
+									"internalType": "string",
+									"name": "modelVersion",
+									"type": "string"
+								},
+								{
+									"components": [
+										{
+											"internalType": "uint8",
+											"name": "ecosystemScore",
+											"type": "uint8"
+										},
+										{
+											"internalType": "uint8",
+											"name": "feasibilityScore",
+											"type": "uint8"
+										},
+										{
+											"internalType": "uint8",
+											"name": "riskScore",
+											"type": "uint8"
+										},
+										{
+											"internalType": "uint8",
+											"name": "teamScore",
+											"type": "uint8"
+										},
+										{
+											"internalType": "uint8",
+											"name": "innovationScore",
+											"type": "uint8"
+										}
+									],
+									"internalType": "struct IAIScoreRegistry.ScoringBreakdown",
+									"name": "breakdown",
+									"type": "tuple"
+								}
+							],
+							"name": "submitAIScore",
+							"outputs": [],
+							"stateMutability": "nonpayable",
+							"type": "function"
+						}
+					],
+					"devdoc": {
+						"details": "Interface for AIScoreRegistry contract",
+						"kind": "dev",
+						"methods": {},
+						"title": "IAIScoreRegistry",
+						"version": 1
+					},
+					"evm": {
+						"assembly": "",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"gasEstimates": null,
+						"legacyAssembly": null,
+						"methodIdentifiers": {
+							"getAIScore(uint256)": "0311b82d",
+							"hasAIScore(uint256)": "96caac0a",
+							"submitAIScore(uint256,uint256,string,string,(uint8,uint8,uint8,uint8,uint8))": "7092b0bc"
+						}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.26+commit.8a97fa7a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"proposalId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"overallScore\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"justificationIPFS\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"modelVersion\",\"type\":\"string\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"AIScoreSubmitted\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"proposalId\",\"type\":\"uint256\"}],\"name\":\"getAIScore\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"score\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"justification\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"proposalId\",\"type\":\"uint256\"}],\"name\":\"hasAIScore\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"proposalId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"overallScore\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"justificationIPFS\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"modelVersion\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"uint8\",\"name\":\"ecosystemScore\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"feasibilityScore\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"riskScore\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"teamScore\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"innovationScore\",\"type\":\"uint8\"}],\"internalType\":\"struct IAIScoreRegistry.ScoringBreakdown\",\"name\":\"breakdown\",\"type\":\"tuple\"}],\"name\":\"submitAIScore\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface for AIScoreRegistry contract\",\"kind\":\"dev\",\"methods\":{},\"title\":\"IAIScoreRegistry\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"CrossFi-Treasury-Guard/contracts/interfaces/IAIScoreRegistry.sol\":\"IAIScoreRegistry\"},\"evmVersion\":\"cancun\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"CrossFi-Treasury-Guard/contracts/interfaces/IAIScoreRegistry.sol\":{\"keccak256\":\"0xb36aceb50a3c334f727f77bbd2f6660b3a7f48226a1cc73c6b4273f03c1c6b17\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0b080c589ae5af3faf1a2a218267478d86dc5408b674e696f4a9a5b617ac46ff\",\"dweb:/ipfs/QmaYY5xJZHYqg7KPdB25pTZyYnhcDrN3miPVTTUE38tvJS\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {},
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"CrossFi-Treasury-Guard/contracts/interfaces/IAIScoreRegistry.sol": {
+				"ast": {
+					"absolutePath": "CrossFi-Treasury-Guard/contracts/interfaces/IAIScoreRegistry.sol",
+					"exportedSymbols": {
+						"IAIScoreRegistry": [
+							60
+						]
+					},
+					"id": 61,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".20"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "32:24:0"
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "IAIScoreRegistry",
+							"contractDependencies": [],
+							"contractKind": "interface",
+							"documentation": {
+								"id": 2,
+								"nodeType": "StructuredDocumentation",
+								"src": "58:81:0",
+								"text": " @title IAIScoreRegistry\n @dev Interface for AIScoreRegistry contract"
+							},
+							"fullyImplemented": false,
+							"id": 60,
+							"linearizedBaseContracts": [
+								60
+							],
+							"name": "IAIScoreRegistry",
+							"nameLocation": "150:16:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"canonicalName": "IAIScoreRegistry.ScoringBreakdown",
+									"id": 13,
+									"members": [
+										{
+											"constant": false,
+											"id": 4,
+											"mutability": "mutable",
+											"name": "ecosystemScore",
+											"nameLocation": "218:14:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 13,
+											"src": "212:20:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint8",
+												"typeString": "uint8"
+											},
+											"typeName": {
+												"id": 3,
+												"name": "uint8",
+												"nodeType": "ElementaryTypeName",
+												"src": "212:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint8",
+													"typeString": "uint8"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 6,
+											"mutability": "mutable",
+											"name": "feasibilityScore",
+											"nameLocation": "248:16:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 13,
+											"src": "242:22:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint8",
+												"typeString": "uint8"
+											},
+											"typeName": {
+												"id": 5,
+												"name": "uint8",
+												"nodeType": "ElementaryTypeName",
+												"src": "242:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint8",
+													"typeString": "uint8"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 8,
+											"mutability": "mutable",
+											"name": "riskScore",
+											"nameLocation": "280:9:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 13,
+											"src": "274:15:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint8",
+												"typeString": "uint8"
+											},
+											"typeName": {
+												"id": 7,
+												"name": "uint8",
+												"nodeType": "ElementaryTypeName",
+												"src": "274:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint8",
+													"typeString": "uint8"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 10,
+											"mutability": "mutable",
+											"name": "teamScore",
+											"nameLocation": "305:9:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 13,
+											"src": "299:15:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint8",
+												"typeString": "uint8"
+											},
+											"typeName": {
+												"id": 9,
+												"name": "uint8",
+												"nodeType": "ElementaryTypeName",
+												"src": "299:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint8",
+													"typeString": "uint8"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 12,
+											"mutability": "mutable",
+											"name": "innovationScore",
+											"nameLocation": "330:15:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 13,
+											"src": "324:21:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint8",
+												"typeString": "uint8"
+											},
+											"typeName": {
+												"id": 11,
+												"name": "uint8",
+												"nodeType": "ElementaryTypeName",
+												"src": "324:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint8",
+													"typeString": "uint8"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "ScoringBreakdown",
+									"nameLocation": "185:16:0",
+									"nodeType": "StructDefinition",
+									"scope": 60,
+									"src": "178:174:0",
+									"visibility": "public"
+								},
+								{
+									"anonymous": false,
+									"eventSelector": "09e8ad66e4736435405704d301d344e9454f286d3feeb2036b1adc6f4900ccbc",
+									"id": 27,
+									"name": "AIScoreSubmitted",
+									"nameLocation": "382:16:0",
+									"nodeType": "EventDefinition",
+									"parameters": {
+										"id": 26,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 15,
+												"indexed": true,
+												"mutability": "mutable",
+												"name": "proposalId",
+												"nameLocation": "424:10:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 27,
+												"src": "408:26:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 14,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "408:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 17,
+												"indexed": false,
+												"mutability": "mutable",
+												"name": "overallScore",
+												"nameLocation": "452:12:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 27,
+												"src": "444:20:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 16,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "444:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 19,
+												"indexed": false,
+												"mutability": "mutable",
+												"name": "justificationIPFS",
+												"nameLocation": "481:17:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 27,
+												"src": "474:24:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_memory_ptr",
+													"typeString": "string"
+												},
+												"typeName": {
+													"id": 18,
+													"name": "string",
+													"nodeType": "ElementaryTypeName",
+													"src": "474:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_string_storage_ptr",
+														"typeString": "string"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 21,
+												"indexed": false,
+												"mutability": "mutable",
+												"name": "modelVersion",
+												"nameLocation": "515:12:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 27,
+												"src": "508:19:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_memory_ptr",
+													"typeString": "string"
+												},
+												"typeName": {
+													"id": 20,
+													"name": "string",
+													"nodeType": "ElementaryTypeName",
+													"src": "508:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_string_storage_ptr",
+														"typeString": "string"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 23,
+												"indexed": true,
+												"mutability": "mutable",
+												"name": "oracle",
+												"nameLocation": "553:6:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 27,
+												"src": "537:22:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												},
+												"typeName": {
+													"id": 22,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "537:7:0",
+													"stateMutability": "nonpayable",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 25,
+												"indexed": false,
+												"mutability": "mutable",
+												"name": "timestamp",
+												"nameLocation": "577:9:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 27,
+												"src": "569:17:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 24,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "569:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "398:194:0"
+									},
+									"src": "376:217:0"
+								},
+								{
+									"functionSelector": "7092b0bc",
+									"id": 41,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "submitAIScore",
+									"nameLocation": "629:13:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 39,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 29,
+												"mutability": "mutable",
+												"name": "proposalId",
+												"nameLocation": "660:10:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 41,
+												"src": "652:18:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 28,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "652:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 31,
+												"mutability": "mutable",
+												"name": "overallScore",
+												"nameLocation": "688:12:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 41,
+												"src": "680:20:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 30,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "680:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 33,
+												"mutability": "mutable",
+												"name": "justificationIPFS",
+												"nameLocation": "724:17:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 41,
+												"src": "710:31:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_memory_ptr",
+													"typeString": "string"
+												},
+												"typeName": {
+													"id": 32,
+													"name": "string",
+													"nodeType": "ElementaryTypeName",
+													"src": "710:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_string_storage_ptr",
+														"typeString": "string"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 35,
+												"mutability": "mutable",
+												"name": "modelVersion",
+												"nameLocation": "765:12:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 41,
+												"src": "751:26:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_memory_ptr",
+													"typeString": "string"
+												},
+												"typeName": {
+													"id": 34,
+													"name": "string",
+													"nodeType": "ElementaryTypeName",
+													"src": "751:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_string_storage_ptr",
+														"typeString": "string"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 38,
+												"mutability": "mutable",
+												"name": "breakdown",
+												"nameLocation": "811:9:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 41,
+												"src": "787:33:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_struct$_ScoringBreakdown_$13_memory_ptr",
+													"typeString": "struct IAIScoreRegistry.ScoringBreakdown"
+												},
+												"typeName": {
+													"id": 37,
+													"nodeType": "UserDefinedTypeName",
+													"pathNode": {
+														"id": 36,
+														"name": "ScoringBreakdown",
+														"nameLocations": [
+															"787:16:0"
+														],
+														"nodeType": "IdentifierPath",
+														"referencedDeclaration": 13,
+														"src": "787:16:0"
+													},
+													"referencedDeclaration": 13,
+													"src": "787:16:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_struct$_ScoringBreakdown_$13_storage_ptr",
+														"typeString": "struct IAIScoreRegistry.ScoringBreakdown"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "642:184:0"
+									},
+									"returnParameters": {
+										"id": 40,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "835:0:0"
+									},
+									"scope": 60,
+									"src": "620:216:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "external"
+								},
+								{
+									"functionSelector": "0311b82d",
+									"id": 52,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "getAIScore",
+									"nameLocation": "855:10:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 44,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 43,
+												"mutability": "mutable",
+												"name": "proposalId",
+												"nameLocation": "874:10:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 52,
+												"src": "866:18:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 42,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "866:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "865:20:0"
+									},
+									"returnParameters": {
+										"id": 51,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 46,
+												"mutability": "mutable",
+												"name": "score",
+												"nameLocation": "926:5:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 52,
+												"src": "918:13:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 45,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "918:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 48,
+												"mutability": "mutable",
+												"name": "justification",
+												"nameLocation": "955:13:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 52,
+												"src": "941:27:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_memory_ptr",
+													"typeString": "string"
+												},
+												"typeName": {
+													"id": 47,
+													"name": "string",
+													"nodeType": "ElementaryTypeName",
+													"src": "941:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_string_storage_ptr",
+														"typeString": "string"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 50,
+												"mutability": "mutable",
+												"name": "exists",
+												"nameLocation": "983:6:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 52,
+												"src": "978:11:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												},
+												"typeName": {
+													"id": 49,
+													"name": "bool",
+													"nodeType": "ElementaryTypeName",
+													"src": "978:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bool",
+														"typeString": "bool"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "908:87:0"
+									},
+									"scope": 60,
+									"src": "846:150:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "external"
+								},
+								{
+									"functionSelector": "96caac0a",
+									"id": 59,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "hasAIScore",
+									"nameLocation": "1015:10:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 55,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 54,
+												"mutability": "mutable",
+												"name": "proposalId",
+												"nameLocation": "1034:10:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 59,
+												"src": "1026:18:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 53,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "1026:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "1025:20:0"
+									},
+									"returnParameters": {
+										"id": 58,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 57,
+												"mutability": "mutable",
+												"name": "exists",
+												"nameLocation": "1074:6:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 59,
+												"src": "1069:11:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												},
+												"typeName": {
+													"id": 56,
+													"name": "bool",
+													"nodeType": "ElementaryTypeName",
+													"src": "1069:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bool",
+														"typeString": "bool"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "1068:13:0"
+									},
+									"scope": 60,
+									"src": "1006:76:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "external"
+								}
+							],
+							"scope": 61,
+							"src": "140:944:0",
+							"usedErrors": [],
+							"usedEvents": [
+								27
+							]
+						}
+					],
+					"src": "32:1053:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

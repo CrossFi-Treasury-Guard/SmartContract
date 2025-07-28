@@ -1,0 +1,200 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "proposalId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "overallScore",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "justificationIPFS",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "modelVersion",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oracle",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "AIScoreSubmitted",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "proposalId",
+						"type": "uint256"
+					}
+				],
+				"name": "getAIScore",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "score",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "justification",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "exists",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "proposalId",
+						"type": "uint256"
+					}
+				],
+				"name": "hasAIScore",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "exists",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "proposalId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "overallScore",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "justificationIPFS",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "modelVersion",
+						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint8",
+								"name": "ecosystemScore",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint8",
+								"name": "feasibilityScore",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint8",
+								"name": "riskScore",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint8",
+								"name": "teamScore",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint8",
+								"name": "innovationScore",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct IAIScoreRegistry.ScoringBreakdown",
+						"name": "breakdown",
+						"type": "tuple"
+					}
+				],
+				"name": "submitAIScore",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Interface for AIScoreRegistry contract",
+			"kind": "dev",
+			"methods": {},
+			"title": "IAIScoreRegistry",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"CrossFi-Treasury-Guard/contracts/interfaces/IAIScoreRegistry.sol": "IAIScoreRegistry"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"CrossFi-Treasury-Guard/contracts/interfaces/IAIScoreRegistry.sol": {
+			"keccak256": "0xb36aceb50a3c334f727f77bbd2f6660b3a7f48226a1cc73c6b4273f03c1c6b17",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0b080c589ae5af3faf1a2a218267478d86dc5408b674e696f4a9a5b617ac46ff",
+				"dweb:/ipfs/QmaYY5xJZHYqg7KPdB25pTZyYnhcDrN3miPVTTUE38tvJS"
+			]
+		}
+	},
+	"version": 1
+}

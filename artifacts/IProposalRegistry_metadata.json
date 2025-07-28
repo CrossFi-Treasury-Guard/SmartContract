@@ -1,0 +1,240 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "proposalId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum IProposalRegistry.VoteType",
+						"name": "voteType",
+						"type": "uint8"
+					}
+				],
+				"name": "castVote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "proposalId",
+						"type": "uint256"
+					}
+				],
+				"name": "executeProposal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCurrentProposalId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "proposalId",
+						"type": "uint256"
+					}
+				],
+				"name": "getProposal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "proposer",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "title",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "summary",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "requestedAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum IProposalRegistry.ProposalStatus",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "aiScore",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votingStart",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votingEnd",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "forVotes",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "againstVotes",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "abstainVotes",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "getVotingPower",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "title",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "summary",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ipfsCID",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "requestedAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string[]",
+								"name": "milestoneDescriptions",
+								"type": "string[]"
+							},
+							{
+								"internalType": "uint256[]",
+								"name": "milestoneAmounts",
+								"type": "uint256[]"
+							},
+							{
+								"internalType": "uint256",
+								"name": "votingPeriod",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IProposalRegistry.ProposalInput",
+						"name": "input",
+						"type": "tuple"
+					}
+				],
+				"name": "submitProposal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"CrossFi-Treasury-Guard/contracts/interfaces/IProposalRegistry.sol": "IProposalRegistry"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"CrossFi-Treasury-Guard/contracts/interfaces/IProposalRegistry.sol": {
+			"keccak256": "0xa7e293a5cf8d8648651f4aec782dc64870dd507aa335bcd33380f7ea0c524a1f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e5f3d6288cee34a9c3e6adb189ced4c4157782be50b9dae4243ad4d94b760cf6",
+				"dweb:/ipfs/QmRSjFJokP5VYo6fp2PHFA8LHxNDba6tqEw2ZUPZvCE6vR"
+			]
+		}
+	},
+	"version": 1
+}

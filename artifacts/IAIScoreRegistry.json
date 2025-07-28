@@ -1,0 +1,210 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"getAIScore(uint256)": "0311b82d",
+			"hasAIScore(uint256)": "96caac0a",
+			"submitAIScore(uint256,uint256,string,string,(uint8,uint8,uint8,uint8,uint8))": "7092b0bc"
+		}
+	},
+	"abi": [
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "proposalId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "overallScore",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "justificationIPFS",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "modelVersion",
+					"type": "string"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "oracle",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "AIScoreSubmitted",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "proposalId",
+					"type": "uint256"
+				}
+			],
+			"name": "getAIScore",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "score",
+					"type": "uint256"
+				},
+				{
+					"internalType": "string",
+					"name": "justification",
+					"type": "string"
+				},
+				{
+					"internalType": "bool",
+					"name": "exists",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "proposalId",
+					"type": "uint256"
+				}
+			],
+			"name": "hasAIScore",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "exists",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "proposalId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "overallScore",
+					"type": "uint256"
+				},
+				{
+					"internalType": "string",
+					"name": "justificationIPFS",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "modelVersion",
+					"type": "string"
+				},
+				{
+					"components": [
+						{
+							"internalType": "uint8",
+							"name": "ecosystemScore",
+							"type": "uint8"
+						},
+						{
+							"internalType": "uint8",
+							"name": "feasibilityScore",
+							"type": "uint8"
+						},
+						{
+							"internalType": "uint8",
+							"name": "riskScore",
+							"type": "uint8"
+						},
+						{
+							"internalType": "uint8",
+							"name": "teamScore",
+							"type": "uint8"
+						},
+						{
+							"internalType": "uint8",
+							"name": "innovationScore",
+							"type": "uint8"
+						}
+					],
+					"internalType": "struct IAIScoreRegistry.ScoringBreakdown",
+					"name": "breakdown",
+					"type": "tuple"
+				}
+			],
+			"name": "submitAIScore",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}
