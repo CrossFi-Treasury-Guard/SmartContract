@@ -73,15 +73,15 @@ Enable optimization with 200 runs
 ## 4. Deploy AIScoreRegistry.sol
 Choose environment: JavaScript VM (for local testing) or CrossFi Testnet
 
-## Deploy the contract and take note of the deployed address
+Deploy the contract and take note of the deployed address
 
 ## ⚙️ Interact with Core Functions
-## | Function                                                                              ## | Description                                                                                      |
-## | ------------------------------------------------------------------------------------- ## | ------------------------------------------------------------------------------------------------ |
-## | `submitAIScore(proposalId, overallScore, justificationIPFS, modelVersion, breakdown)` ## | Allows an authorized Oracle to submit an AI score with metadata and justification stored in IPFS |
-## | `getAIScore(proposalId)`                                                              ## | Retrieves the AI score details for a specific proposal                                           |
-## | `setOracleAuthorization(address, bool)`                                               ## | Grants or revokes Oracle permissions (Admin only)                                                |
-## | `pause()` / `unpause()`                                                               ## | Toggles the contract’s paused state for emergency control (Admin only)                           |
+## | Function                                                                              | Description                                                                                      |
+## | -------------------------------------------------------------------------------------  | ------------------------------------------------------------------------------------------------ |
+## | `submitAIScore(proposalId, overallScore, justificationIPFS, modelVersion, breakdown)` | Allows an authorized Oracle to submit an AI score with metadata and justification stored in IPFS |
+## | `getAIScore(proposalId)`                                                              | Retrieves the AI score details for a specific proposal                                           |
+## | `setOracleAuthorization(address, bool)`                                                | Grants or revokes Oracle permissions (Admin only)                                                |
+## | `pause()` / `unpause()`                                                               | Toggles the contract’s paused state for emergency control (Admin only)                           |
 
 
 ## 📌 Tip: Use the Remix logs to verify emitted events such as AIScoreSubmitted, and inspect contract state changes using the built-in debugger.
