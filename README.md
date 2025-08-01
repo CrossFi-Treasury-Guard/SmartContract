@@ -32,41 +32,6 @@ This component is designed for the **CrossFi Hackathon 2025** and aligns with th
 - ✅ Secure, modular, and upgrade-friendly smart contract architecture  
 - ✅ Full compatibility with the CrossFi chain and governance dashboard
 
----
-
-## 📁 Project Structure
-
-```bash
-CrossFi-Treasury-Guard/
-│
-├── abis/                         # ABI files for frontend or integration
-│   ├── AIScoreRegistry.abi.json
-│   ├── ExtendedAccessControl.abi.json
-│   ├── ProposalRegistry.abi.json
-│   └── TreasuryEscrow.abi.json
-│
-├── contracts/                    # Solidity contracts
-│   ├── interfaces/              # Modular interfaces
-│   │   ├── IAIScoreRegistry.sol
-│   │   ├── IProposalRegistry.sol
-│   │   └── ITreasuryEscrow.sol
-│   │
-│   ├── utils/                   # Shared logic
-│   │   └── ExtendedAccessControl.sol
-│   │
-│   ├── AIScoreRegistry.sol      # AI score management logic
-│   ├── ProposalRegistry.sol     # Proposal tracking logic
-│   ├── ProposalRegistryBase.sol
-│   ├── ProposalSubmission.sol
-│   ├── ProposalVoting.sol
-│   └── TreasuryEscrow.sol       # Milestone-based fund releases
-│
-├── docs/                         # Additional documentation
-│   └── ContractDocumentation.md
-│
-├── README.md                     # This project overview
-└── compiler_config.json          # Solidity compiler configuration
-
 
 ## 🧠 Score Dispute Mechanism
 
@@ -153,3 +118,38 @@ A DAO member sees a score of **90/100** submitted to a weak proposal.
 - 🧑‍⚖️ Empowers community to catch unfair scores  
 - ⛓ Fully on-chain and verifiable  
 - 🛠 Minimal cost, high integrity  
+
+---
+
+## 📁 Project Structure
+
+```bash
+CrossFi-Treasury-Guard/
+│
+├── abis/                         # ABI files for frontend or integration
+│   ├── AIScoreRegistry.abi.json
+│   ├── ExtendedAccessControl.abi.json
+│   ├── ProposalRegistry.abi.json
+│   └── TreasuryEscrow.abi.json
+│
+├── contracts/                    # Solidity contracts
+│   ├── interfaces/              # Modular interfaces
+│   │   ├── IAIScoreRegistry.sol
+│   │   ├── IProposalRegistry.sol
+│   │   └── ITreasuryEscrow.sol
+│   │
+│   ├── utils/                   # Shared logic
+│   │   └── ExtendedAccessControl.sol
+│   │
+│   ├── AIScoreRegistry.sol      # AI score management logic
+│   ├── ProposalRegistry.sol     # Proposal tracking logic
+│   ├── ProposalRegistryBase.sol
+│   ├── ProposalSubmission.sol
+│   ├── ProposalVoting.sol
+│   └── TreasuryEscrow.sol       # Milestone-based fund releases
+│
+├── docs/                         # Additional documentation
+│   └── ContractDocumentation.md
+│
+├── README.md                     # This project overview
+└── compiler_config.json          # Solidity compiler configuration
