@@ -1,101 +1,106 @@
 🛡️ CrossFi Treasury Guard – AI Score Registry
-A secure, modular, and decentralized smart contract system designed to register and verify AI-generated scores for governance proposals within the CrossFi DAO ecosystem.
+A secure, modular, and decentralized smart contract system that registers and verifies AI-generated scores for DAO proposals within the CrossFi ecosystem. This contract powers AI-based governance by anchoring scoring transparency, IPFS-backed justification, and role-secured submissions — forming the intelligent core of the Treasury Guard framework.
 
-This system empowers the treasury with verifiable AI-based evaluation, IPFS-backed justification, and fine-grained role-based access control — delivering an intelligent, transparent, and scalable infrastructure for proposal governance.
+🚀 Key Features
+🔍 AI-Powered Scoring
+Evaluates DAO proposals through verifiable AI-generated scores. Each score includes granular breakdowns (feasibility, impact, utility, etc.) and a justification hash stored on IPFS.
 
-## 🚀 Key Features
-## 🔍 AI-Powered Scoring
-Submit AI-generated evaluations tied to individual proposals, covering dimensions such as feasibility, impact, and utility. Each score is backed by verifiable justifications stored on IPFS.
+🔐 Role-Based Access Control
+Permissions are managed through OpenZeppelin’s AccessControl, extended with a modular authorization layer for Oracles, Admins, and system contracts.
 
-## 🔐 Role-Based Access Control
-Access is strictly managed using smart contract roles (Admin, Oracle, etc.), powered by OpenZeppelin’s AccessControl standard with custom extensions for modularity.
+⏸ Emergency Pausing
+Admins can pause the contract in the event of anomalies, ensuring operational safety during upgrades, bug resolution, or external threats.
 
-## ⏸ Pausable Registry
-Contracts can be paused by Admins in emergency scenarios, ensuring operational control and minimizing risk during upgrades or security audits.
+📁 Decentralized IPFS Integration
+AI justifications are stored on IPFS, making the evaluation immutable and publicly accessible for community review and audit.
 
-## 📁 Immutable Storage via IPFS
-AI justifications and metadata are stored off-chain using IPFS, ensuring decentralized traceability and tamper-proof documentation.
+⚖️ Dispute-Ready Architecture
+The system is designed to support future dispute mechanisms where community members or auditors can flag or challenge submitted scores.
 
-## 🛠 Dispute Resolution Ready
-Architecture supports future upgrades for proposal challenge periods, on-chain appeals, or AI-model dispute protocols.
+🎯 Hackathon Goal & Ecosystem Fit
+This component is designed for the CrossFi Hackathon 2025 and aligns with the mission of upgrading decentralized treasury governance through:
 
-## 🎯 Purpose and Hackathon Alignment
-This project aligns with CrossFi’s vision to modernize decentralized treasury management through AI-integrated systems. It supports:
+Verifiable AI-based proposal evaluation
 
-DAO proposal scoring using verifiable AI models
+Transparent and decentralized recordkeeping
 
-Transparent justification storage via IPFS
+Secure, modular, and upgrade-friendly smart contract architecture
 
-Secure, upgradeable contract architecture
+Full compatibility with the CrossFi chain and governance dashboard
 
-Plug-and-play compatibility with CrossFi governance tooling
-
-## 🧩 Project Structure
-## CrossFi-Treasury-Guard/
+📁 Project Structure
+bash
+Copy
+Edit
+CrossFi-Treasury-Guard/
 │
-├── abis/                         # ABI files for frontend or testing integration
+├── abis/                         # ABI files for frontend or integration
 │   ├── AIScoreRegistry.abi.json
 │   ├── ExtendedAccessControl.abi.json
 │   ├── ProposalRegistry.abi.json
 │   └── TreasuryEscrow.abi.json
 │
-├── contracts/                    # Core Solidity smart contracts
-│   ├── interfaces/              # Reusable interfaces
+├── contracts/                    # Solidity contracts
+│   ├── interfaces/              # Modular interfaces
 │   │   ├── IAIScoreRegistry.sol
 │   │   ├── IProposalRegistry.sol
 │   │   └── ITreasuryEscrow.sol
 │   │
-│   ├── utils/                   # Shared logic & access control
+│   ├── utils/                   # Shared logic
 │   │   └── ExtendedAccessControl.sol
 │   │
-│   ├── AIScoreRegistry.sol      # AI score submission and retrieval
-│   ├── ProposalRegistry.sol     # Proposal state and validation
+│   ├── AIScoreRegistry.sol      # AI score management logic
+│   ├── ProposalRegistry.sol     # Proposal tracking logic
 │   ├── ProposalRegistryBase.sol
-│   ├── ProposalSubmission.sol   # Handles new proposals
-│   ├── ProposalVoting.sol       # Voting logic (DAO-compatible)
-│   └── TreasuryEscrow.sol       # Treasury release logic and milestones
+│   ├── ProposalSubmission.sol
+│   ├── ProposalVoting.sol
+│   └── TreasuryEscrow.sol       # Milestone-based fund releases
 │
 ├── docs/                         # Additional documentation
 │   └── ContractDocumentation.md
 │
 ├── README.md                     # This project overview
-└── compiler_config.json          # Solidity compiler settings (v0.8.20)
-## 🧪 Testing in Remix IDE
-Automated tests will be added in the future. For now, manual validation via Remix is recommended.
+└── compiler_config.json          # Solidity compiler configuration
+🧪 Testing in Remix
+Manual testing can be done directly via Remix IDE. Automated tests are scheduled for future versions.
 
-## ✅ Steps to Test:
-Open Remix
+✅ Step-by-Step Guide
+Open Remix:
 ➤ https://remix.ethereum.org
 
-## Setup Project Structure
-➤ Create and paste code into files based on the structure under contracts/.
+Import Files:
+Paste the contract files into the contracts/ structure above.
 
-Compiler Settings
+Compiler Settings:
 
-Compiler version: 0.8.20
+Version: 0.8.20
 
 Optimization: Enabled, Runs: 200
 
-Deploy Contracts
+Deploy Contracts in Order:
 
-Start with AIScoreRegistry.sol
+ExtendedAccessControl.sol
 
-Use either JavaScript VM for local or CrossFi Testnet
+AIScoreRegistry.sol
 
-Copy deployed addresses for later interaction
+(Optional for testing): ProposalRegistry.sol, TreasuryEscrow.sol
 
-## 🔧 Interact with Functions:
+Choose Environment:
+
+JavaScript VM for quick local testing
+
+Or connect to CrossFi Testnet
+
+🧰 Interacting with the Registry
 Function	Description
-submitAIScore(proposalId, overallScore, justificationIPFS, modelVersion, breakdown)	Authorized Oracle submits an AI score with justification
-getAIScore(proposalId)	Returns full score details for a proposal
-setOracleAuthorization(address, bool)	Admin grants/revokes oracle role
-pause() / unpause()	Admin toggles contract activity
+submitAIScore(proposalId, overallScore, justificationIPFS, modelVersion, breakdown)	Oracle submits an AI score with breakdowns and IPFS hash
+getAIScore(proposalId)	Retrieves full score metadata for a proposal
+setOracleAuthorization(address, bool)	Grants or revokes Oracle submission rights
+pause() / unpause()	Allows Admin to pause or resume registry
 
-## 🔎 Validation: Use Remix logs to confirm events like AIScoreSubmitted, and inspect the contract state using the debugger.
+📌 Event Logs: Look for AIScoreSubmitted to confirm submissions.
 
-🔧 Compiler Configuration
-For advanced users or integration with tools like Hardhat or Foundry, use the following compiler settings:
-
+🛠 Compiler Configuration (For Tools like Hardhat)
 json
 Copy
 Edit
@@ -103,7 +108,7 @@ Edit
   "language": "Solidity",
   "sources": {
     "AIScoreRegistry.sol": {
-      "content": "<paste-contract-content>"
+      "content": "<paste-contract-code>"
     }
   },
   "settings": {
@@ -119,39 +124,78 @@ Edit
     }
   }
 }
-## Note: I also encountered this error =>  Stack Too Deep
-Three words of horror, which made me panicked while using Remix so check this link to check the steps to address this issues while coding, testing e.t.c ➤ 
+🧨 Common Error: Stack Too Deep
+“Stack Too Deep” errors in Remix are common for complex structs or large functions. Here's a helpful resource to address this:
 
-## 📌 Usage Without Verification
-The contract works without verification on explorers like the CrossFi Testnet Explorer. Verification is only required for transparency and audits. Functionality remains unaffected if:
+🔗 How to Fix "Stack Too Deep" in Solidity – Recommended Workarounds
 
-The bytecode matches the compiled output
+Tips:
 
-Required dependencies (e.g., OpenZeppelin) are correctly imported or flattened
+Break large functions into smaller ones
 
-## 🛡️ Future Enhancements
-These features are designed for future integration and may be built into follow-up versions:
+Use local structs or memory arrays
 
-Score Dispute Mechanism: DAO members can challenge AI scores within a fixed timeframe.
+Minimize inline calculations
 
-On-Chain AI Versioning: Enable transparent tracking of model versions used for each score.
+📌 Using the Contract Without Verification
+Deployment without source-code verification (e.g., on CrossFi Testnet) is fully supported. The contract will function correctly if:
 
-Cross-Chain Support: Deploy to Ethereum, CrossFi Testnet, and other EVM-compatible chains.
+Bytecode matches your compiled output
 
-Governance Integration: Use scores to weight DAO votes or filter out weak proposals.
+You’ve imported all dependencies (e.g., OpenZeppelin) locally or flattened
 
-## 🧠 Learn More
-Explore how the AI Score Registry fits into the broader CrossFi Treasury Guard initiative by pairing it with the frontend interface, milestone escrow logic, and DAO dashboard systems.
+Verification is only required for transparency, not functionality.
 
-📖 See companion frontend: CrossFi Treasury Guard – AI-Governed DAO (Frontend)
+🔮 Future Enhancements
+Planned Feature	Description
+Score Dispute Window	Allow DAO members to challenge submitted scores within a fixed time
+On-Chain Model Versioning	Register and track the model version tied to each score
+Cross-Chain Deployment	Extend compatibility across other EVM networks
+DAO Score Integration	Use AI scores to influence voting weight or filter weak proposals
 
-## 📝 License
-This project is released under the MIT License. See the LICENSE file for details.
+🔗 Deployed Addresses
+Paste your deployed contract addresses below:
 
-## 🧑‍💻 Contribution & Support
-Open to feedback, suggestions, and contributions:
+ts
+Copy
+Edit
+// src/config/contracts.ts
+export const CONTRACT_ADDRESSES = {
+  AI_SCORE_REGISTRY: 'PASTE_HERE',
+  PROPOSAL_REGISTRY: 'PASTE_HERE',
+  TREASURY_ESCROW: 'PASTE_HERE',
+  XFI_TOKEN: 'PASTE_HERE'
+};
+📖 Learn More
+To see this contract in action, explore its integration in the CrossFi Treasury Guard – AI-Governed DAO (Frontend) interface.
 
-Submit issues or feature requests on GitHub
+Submit a proposal
 
-Fork the repo and submit PRs
+Receive an AI-backed score
+
+Vote and manage treasury funding — all from the frontend dashboard
+
+📝 License
+MIT License. See LICENSE for full details.
+
+🧑‍💻 Contributing & Support
+Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+
+✅ Ways to Contribute
+Fork the repo
+
+Create a feature branch
+
+Commit changes
+
+Push to GitHub and open a PR
+
+❓ Questions or Bugs?
+File an issue on GitHub
+
+Contact the CrossFi Hackathon team
+
+Check the Wiki for additional docs
+
+
 
