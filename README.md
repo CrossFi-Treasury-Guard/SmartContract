@@ -68,3 +68,88 @@ CrossFi-Treasury-Guard/
 └── compiler_config.json          # Solidity compiler configuration
 
 
+## 🧠 Score Dispute Mechanism
+
+A mechanism for decentralizing trust in AI scoring by enabling community oversight.
+
+### 🔍 Why It Matters
+AI scores may be incorrect, biased, or misused. A **Score Dispute Window** gives DAO members a chance to **challenge** suspicious or unfair scores before they become final.
+
+---
+
+### ✅ How It Works
+
+1. **Oracle submits AI Score**  
+   Includes score, justification (IPFS), and model version metadata.
+
+2. **Dispute Window Opens**  
+   Once submitted, a timer begins (e.g., 24–72 hours).
+
+3. **DAO Members Can Dispute**  
+   Any wallet with proper access can trigger a dispute by providing evidence and paying a small fee (to prevent spam).
+
+4. **Escalation Process**  
+   - Disputed scores are paused.
+   - A committee (or DAO vote) resolves the case.
+   - Outcome: Score is **confirmed**, **updated**, or **rejected**.
+
+5. **Finalization**  
+   If no dispute is raised within the window, the score becomes final.
+
+---
+
+### ⚙️ Proposed Contract Additions
+
+| Function | Description |
+|---------|-------------|
+| `openDisputeWindow(proposalId)` | Opens dispute window after a score is submitted |
+| `disputeScore(proposalId, justificationIPFS)` | DAO member raises a dispute |
+| `resolveDispute(proposalId, newScore?)` | Admin or vote-based resolution to finalize score |
+| `getDisputeStatus(proposalId)` | Returns current status: `None`, `Open`, `Resolved` |
+
+---
+
+### 📌 Events
+
+| Event | Trigger |
+|-------|---------|
+| `ScoreDisputed(proposalId, disputer, justificationIPFS)` | Emitted when a score is challenged |
+| `DisputeResolved(proposalId, result)` | Emitted when resolution is complete |
+
+---
+
+### 🧰 Optional Parameters
+
+- `disputeFee`: Small ETH fee (e.g., 0.01 ETH) to submit a dispute  
+- `windowDuration`: Configurable by admin (e.g., 48 hours)  
+- `maxDisputesPerProposal`: Prevent spam or abuse  
+
+---
+
+### 🛡 Example Use Case
+
+A DAO member sees a score of **90/100** submitted to a weak proposal.
+
+- They believe it's inflated.
+- They submit a dispute citing flawed model justification.
+- A resolution team reviews and adjusts score to **65/100** after investigation.
+- System logs everything on-chain and updates transparently.
+
+---
+
+### 🔮 Future Improvements
+
+| Feature | Description |
+|---------|-------------|
+| 🧠 On-Chain Justification Review | Use zkML or hash-verified LLM models for transparency |
+| 🗳 Dispute Voting | Let all DAO members vote on disputes |
+| ⚖️ Slashing for Bad Oracles | Penalize repeat offenders submitting bad scores |
+
+---
+
+### 🚀 Benefits
+
+- 📊 Increases transparency of AI scoring  
+- 🧑‍⚖️ Empowers community to catch unfair scores  
+- ⛓ Fully on-chain and verifiable  
+- 🛠 Minimal cost, high integrity  
