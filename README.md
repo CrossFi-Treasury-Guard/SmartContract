@@ -36,6 +36,7 @@ This component is designed for the **CrossFi Hackathon 2025** and aligns with th
 
 ## 📁 Project Structure
 
+```bash
 CrossFi-Treasury-Guard/
 │
 ├── abis/                         # ABI files for frontend or integration
@@ -65,6 +66,5 @@ CrossFi-Treasury-Guard/
 │
 ├── README.md                     # This project overview
 └── compiler_config.json          # Solidity compiler configuration
-
 
 
