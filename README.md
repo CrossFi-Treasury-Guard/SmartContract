@@ -1,4 +1,4 @@
-##n🛡️ CrossFi Treasury Guard – AI Score Registry
+🛡️ CrossFi Treasury Guard – AI Score Registry
 A secure, modular, and decentralized smart contract system designed to register and verify AI-generated scores for governance proposals within the CrossFi DAO ecosystem.
 
 This system empowers the treasury with verifiable AI-based evaluation, IPFS-backed justification, and fine-grained role-based access control — delivering an intelligent, transparent, and scalable infrastructure for proposal governance.
@@ -31,7 +31,7 @@ Secure, upgradeable contract architecture
 Plug-and-play compatibility with CrossFi governance tooling
 
 ## 🧩 Project Structure
-CrossFi-Treasury-Guard/
+## CrossFi-Treasury-Guard/
 │
 ├── abis/                         # ABI files for frontend or testing integration
 │   ├── AIScoreRegistry.abi.json
